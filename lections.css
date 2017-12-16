@@ -1,0 +1,34 @@
+.code,
+pre
+{
+    background: #DDD;
+    border-radius: 5px;
+    font-family:  Calibri;
+}
+
+pre
+{
+    margin: 0;
+    padding: 5px;
+    width: 200px;
+}
+
+.introduce
+{
+    margin: 5px;
+    border: 1px dotted;
+    width: 400px;
+}
+
+.operatorsPriority
+{
+    width: 400px;
+    position: absolute;
+    margin-top: 0;
+    left: 80px;
+}
+
+.baseNumeration > li
+{
+    
+}

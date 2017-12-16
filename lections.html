@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Экзамен JavaScript</title>
+    <link rel="stylesheet" href="lections.css" type="text/css">
+</head>
+<body>
+    <ol class="baseNumeration">
+        <li><h3>Типы данных</h3>
+            <ul class="introduce"><b>Типов данных всего 6:</b>
+                <li>Числа</li>
+                <li>Строки</li>
+                <li>Булевы величины</li>
+                <li>Неопределенные величины</li>
+                <li>Объекты и массивы</li>
+                <li>Функции</li>
+            </ul>
+            <ol type="I">
+                <li>Числа
+                    <ul>
+                        <li>Системы счисления
+                            <ul>
+                                <li><b>По умолчанию установлена десятичная</b></li>
+                                <li>0x -- шестнадцатиричная</li>
+                                <li>0o -- восьмеричная</li>
+                                <li>0b -- бинарная</li>
+                            </ul>
+                        </li>
+                        <li>Память
+                            <ul>
+                                <li>Отводится 64 бита под число:
+                                    <ul>
+                                        <li>1 бит под знак</li>
+                                        <li>несколько под позици плавающей точки</li>
+                                        <li>само число</li>
+                                    </ul>
+                                </li>
+                                <li>0x -- шестнадцатиричная</li>
+                                <li>0o -- восьмеричная</li>
+                                <li>0b -- бинарная</li>
+                            </ul>
+                        </li>
+                        <li>Экспоненциальная запись
+                            <ul>
+                                <li>2.9998e8</li>
+                                <i>Представится как 2.9998 * 10^8 = 299980000</i>
+                            </ul>
+                        </li>
+                        <li>Бесконечность
+                            <ul>
+                                <li>Infinity</li>
+                                <li>-Infinity</li>
+                                <i>По умолчанию больше (меньше) любого числа в JavaScript</i>
+                            </ul>
+                        </li>
+                        <li>NaN (Not a Number)<br>
+                            <i>Образуется в результате херовых сравнений</i>
+                        </li>
+                        <li>Объекты, массивы, функции будут рассмотрены дальше</li>
+                    </ul>
+                </li>
+                <li>Строки
+                    <ul>
+                        <li>Могут декларироваться одинарными или двойными кавычками</li>
+                        <li>Некоторые символы прихоится экранировать <br><i>например <span class="code">\\</span> 
+                            или <span class="code">\'</span> экранируются в <span class="code">\</span> и <span class="code">'</span> соответственно</i></li>
+                        <li>Используют таблицу Unispan</li>
+                        <li>Являются неизменяемыми</li>
+                        <li>Методы
+                            <ul>
+                                <li><span class="code">'...'.length</span> -- <i>Возвращает длину строки</i></li>
+                                <li><span class="code">'...'.slice</span> -- <i>Принимает 2(1) аргумента, возвращает новую обрезанную с 1 по 2 аргумент строку</i></li>
+                                <li><span class="code">'...'.indexOf</span> -- <i>Принимает 2(1) аргумента, возвращает true, если нашел подстроку, начиная со 2 аргумента</i></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Логический тип
+                    <ul>
+                        <li>true</li>
+                        <li>false</li>
+                    </ul>
+                </li>
+                <li>Неопределенные типы данных
+                    <ul>
+                        <li>undefined</li>
+                        <li>null</li>
+                    </ul>
+                </li>
+            </ol>
+        </li>
+        <li><h3>Оператор typeof</h3>
+            <ul>
+                <li>Возвращает тип аргумента</li>
+                <li>Синтаксис оператора: <span class="code">typeof x;</span></li>
+                <li>Синтаксис функции: <span class="code">typeof(x);</span></li>
+                <li>Работают одинаково</li>
+            </ul>
+        </li>
+        <li><h3>parseInt</h3> Принимает 2 аргумента:
+            <ul>
+                <li>Строка, которую необходимо преобразовать</li>
+                <li>Система счисления, к которой необходимо преобразовать</li>                
+            </ul>
+        </li>
+        <li><h3>Number()</h3> Принимает 1 аргумент</li>
+        <li><h3>parseFloat</h3> Принимает 1 аргумент</li>
+        <li><h3>Переменные</h3> 2 способа декларации
+            <ul>
+                <li><span class="code">var</span></li>
+                <li><span class="code">const и let</span></li> <i>введены в ES6</i>
+            </ul>
+        </li>
+        <li><h3>Именование</h3>
+            <ul>
+                <li>Первый символ: <br> <pre><span class="code">a-z     _       $</span></pre></li>
+                <li>Остальные символы: <br> <pre><span class="code">a-z     A-Z     0-9     _       $</span></pre></li>
+                <li>Принятый стиль: <b>camelCase</b></li>
+                <li>Запрещается использование ключевых слов в именах</li>
+                <li>Если используется <span class="code">var</span>, константы именуются с большой буквы</li>
+            </ul>
+        </li>
+        <li><h3>Комментарии</h3>
+            <ul>
+                <li>Блочные: <span class="code">/*...*/</span></li>
+                <li>Строчные: <span class="code">//...</span></li>
+            </ul>
+        </li>
+        <li><h3>Операторы</h3> <b>В порядке уменьшения приоритета:</b>
+            <ul>
+                <li>Унарные
+                    <ul>
+                        <li>++</li><li>--</li><li>+</li><li>--</li><li>! (логическиое отрицание)</li><hr class="operatorsPriority">
+                    </ul>
+                </li>
+                <li>Бинарные
+                    <ul>
+                        <li>*</li><li>/</li><li>%</li><hr class="operatorsPriority">
+                        <li>+</li><li>-</li><li>+ (конкатенация строк)</li><hr class="operatorsPriority">
+                    </ul>
+                </li>
+                <li>Сравнения
+                    <ul>
+                        <li><</li><li><=</li><li>></li><li>>=</li>
+                        <li>== (нестрогое сравнение (с приведением типов))</li>
+                        <li>!=</li>
+                        <li>=== (строгое сравнение (без приведения типов))</li>
+                        <li>!==</li><hr class="operatorsPriority">
+                    </ul>
+                </li>
+                <li>Логические
+                    <ul>
+                        <li>&&</li><hr class="operatorsPriority">
+                        <li>||</li><hr class="operatorsPriority">
+                    </ul>
+                </li>
+                <li>Присваивание
+                    <ul>
+                        <li>Простое</li>
+                        <li>Составное</li>
+                    </ul>
+                </li>
+                <li>Условные опреаторы
+                    <ul>
+                        <li><pre><span class="code">if(...) { 
+    ...
+} else {
+    ...
+}</span></pre></li>
+                        <li>Тернарный условный оператор<br><span class="code">(expression) ? true-block : false-block</span></li>
+                        <li>switch-case:
+<pre><span class="code">switch(expression) {
+    case 'value1':
+        ...
+        [break];
+    case 'value2':
+        ...
+        [break];
+    ...
+    default:
+        ...
+}</span></pre>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><h3>Точка с запятой (строгий и нестрогий режимы)</h3>
+            <ul>
+                <li>Точка с запятой может не ставиться в нестрогом режиме, но это может привести к ошибке</li>
+                <li>Для включения строгого режима в начале файла пишется: <span class="code">'use strict';</span></li>
+            </ul>
+        </li>
+    </ol>
+</body>
+</html>
