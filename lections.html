@@ -55,7 +55,7 @@
                             </ul>
                         </li>
                         <li>NaN (Not a Number)<br>
-                            <i>Образуется в результате херовых сравнений</i>
+                            <i>Образуется в результате херовых операций с числами</i>
                         </li>
                         <li>Объекты, массивы, функции будут рассмотрены дальше</li>
                     </ul>
@@ -63,7 +63,7 @@
                 <li>Строки
                     <ul>
                         <li>Могут декларироваться одинарными или двойными кавычками</li>
-                        <li>Некоторые символы прихоится экранировать <br><i>например <span class="code">\\</span> 
+                        <li>Некоторые символы приходится экранировать <br><i>например <span class="code">\\</span> 
                             или <span class="code">\'</span> экранируются в <span class="code">\</span> и <span class="code">'</span> соответственно</i></li>
                         <li>Используют таблицу Unispan</li>
                         <li>Являются неизменяемыми</li>
@@ -132,15 +132,15 @@
         </li>
         <li><h3>Комментарии</h3>
             <ul>
-                <li>Блочные: <span class="code">/*...*/</span></li>
-                <li>Строчные: <span class="code">//...</span></li>
+                <li>Блочные: <span class="code">/* ... */</span></li>
+                <li>Строчные: <span class="code">// ...</span></li>
             </ul>
         </li>
         <li><h3>Операторы</h3> <b>В порядке уменьшения приоритета:</b>
             <ul>
                 <li>Унарные
                     <ul>
-                        <li>++</li><li>--</li><li>+</li><li>--</li><li>! (логическиое отрицание)</li><hr class="operatorsPriority">
+                        <li>++</li><li>--</li><li>+</li><li>-</li><li>! (логическое отрицание)</li><hr class="operatorsPriority">
                     </ul>
                 </li>
                 <li>Бинарные
@@ -173,22 +173,22 @@
                 <li>Условные опреаторы
                     <ul>
                         <li><pre><span class="code">if(...) { 
-    ...
+        ...
 } else {
-    ...
+        ...
 }</span></pre></li>
                         <li>Тернарный условный оператор<br><span class="code">(expression) ? true-block : false-block</span></li>
                         <li>switch-case:
 <pre><span class="code">switch(expression) {
-    case 'value1':
+        case 'value1':
+                ...
+                [break];
+        case 'value2':
+                ...
+                [break];
         ...
-        [break];
-    case 'value2':
-        ...
-        [break];
-    ...
-    default:
-        ...
+        default:
+                ...
 }</span></pre>
                         </li>
                     </ul>
@@ -263,16 +263,31 @@
                 <li>Значение может быть произвольного типа</li>
                 <li>Создание:
                     <pre><span class="code">let obj = {
-    author: 'Petya',
-    countRow: 18,
-    haveSubscribe: true,
-    childAuthor: {
-        name: 'Lesha',
-        age: 5
-    }
+        author: 'Petya',
+        countRow: 18,
+        haveSubscribe: true,
+        childAuthor: {
+                name: 'Lesha',
+                age: 5
+        }
 }</span></pre>
                 </li>
                 <li>Добавление свойства: <span class="code">объект.свойство = 'ето новое свойство типа строка';</span></li>
+                <li>Добавление метода или свойства:
+                    <pre class="expand2"><span class="code">Object.defineProperty(объект, 'toString', {         /* принимает объект, 
+название нового свойства и объект конфигурирования, 
+описывающий параметры свойства или метода */
+        value: function() {     // м.б. примитив или функция, во втором случае -- это метод, в первом -- свойство
+                return 'хаю-хай'
+        },
+        writable: true,         // редактируемое      
+        enumerable: false,      // перечисляемое (не возвращается при запросе Object.keys(...))
+        configurable: true      // редактируемое и удаляемое
+        // последние 3 по умолчанию <code>false</code>
+});</span></pre>
+                </li>
+                <li>Также существует метод <span class="code">defineProperties</span>, позволяющий декларировать сразу несколько свойств объекта</li>
+                <li>Метод <span class="code">Object.getOwnPropertyDesctiptor(объект, 'свойство')</span> позволяет получить данные об объекте конфигурирования свойства объекта</li>
                 <li>Удаление свойства: <span class="code">delete объект.свойство;</span> -- <i>возвращает true или false</i></li>
                 <li>Обращение:
                     <ul>
@@ -294,6 +309,57 @@
                         <li>Кавычки писос как важны</li>
                     </ul>
                 </li>
+                <li><b>Геттеры и сеттеры</b> -- альтернативные способы декларации свойств и методов объекта
+                    <ul>
+                        <li>специальные методы объекта, которые вызываются при обращении к свойству на чтение и на запись</li>
+                        <li>удобно при работе с динамическими свойствами, регулируя правила работы с ними и ограничения</li>
+                        <li><span class="code">Object.defineProperty(объект, 'свойство', {
+get: function() {
+        return this.другоеСвойство;
+},
+set: function(value) {
+        this.другоеСвойство = parseInt(value) || 0;
+}
+});</span></pre></li>
+                        <li>Геттеры срабатывает при обращении на чтение, например <span class="code">объект.свойство</span><br>
+                        Сеттер срабатывает при обращении на запись, как то: <span class="code">объект.свойство = 'cerf'</span></li>
+                    </ul>
+                </li>
+                <li><b>Заморозка</b>
+                    <ul>
+                        <li>Задается при помощи <span class="code">Object.freeze(объект)</span></li>
+                        <li>Убирает writable, configurable, но оставляет enumerable: true</li>
+                        <li><span class="code">Object.isFrozen(объект)</span> возвращает true, если объект заморожен</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><h3>Объект Date</h3>
+            <ul>
+                <li><span class="code">new Date();</span> создает объект с текущей датой в системном часовом поясе</li>
+                <li><span class="code">new Date('строка');</span> попытается преобразовать строку к дате</li>
+                <li><span class="code">new Date(число);</span> преобразует как количество секунд, прошедших с полуночи (00:00:00 UTC) 1 января 1970 года (UNIX Timestamp)</li>
+                <li><span class="code">new Date(число, число[, число, ...]);</span> год, месяц(начиная с 0) [, день, часы, минуты, секуды и мс</li>
+                <li><span class="code">(new Date(что-то)).valueOf();</span> вернет UNIX Timestamp (секунды) от переданного</li>
+                <li><span class="code">Date.now();</span> вернет текущий UNIX Timestamp (секунды)</li>
+                <li><i>Старый, работает хуево. Образца Java 1995. Рекомендуется ознакомиться с документацией.</i></li>
+            </ul>
+        </li>
+        <li><h3><b>Объект Math</b> -- библиотека мат. функций и констант</h3>
+            <ul>
+                <li><span class="code">Math.random();</span> возвращает случайное число от 0 до 1</li>
+                <li><span class="code">Math.min(2 и более значений);</span> выбирает минимальное</li>
+                <li><span class="code">Math.max(2 и более значений);</span> выбирает максимальное</li>
+                <li>Округление
+                    <ul>
+                        <li><span class="code">Math.round(число);</span> округляет арифметически</li>
+                        <li><span class="code">Math.floor(число);</span> округляет вниз</li>
+                        <li><span class="code">Math.ceil(число);</span> округляет вверх</li>
+                    </ul>
+                </li>
+                <li><span class="code">Math.log(число);</span> вернет натуральный логарифм</li>
+                <li><span class="code">Math.pow(числоA, числоB);</span> вернет a<sup>b</sup></li>
+                <li>Есть еще дохера, типа синус, тангенс, etc</li>
             </ul>
         </li>
         <li><h3>Функции</h3>
@@ -312,6 +378,57 @@
                         <br><i>В этом случае все изменения с этими данными изменяют передаваемый параметр, работая непосредственно с ним</i></li>
                     </ul>
                 </li>
+            </ul>
+        </li>
+        <li><h3>Обработка исключений</h3>
+            <ul>
+                <li>Применяется для того, чтобы не обрабатывать все возможные варианты 
+                    всех возможных значений, а просто кинуть ошибку, если данные хуевые</li>
+                <li><span class="code">throw new TypeError('Vse huevo');</span></li>
+                <li>Могут быть разные ошибки на все случаи жизни</li>
+                <li>Как правило на практике используется конструкция try ... catch</li>
+                <li><pre class="expand"><span class="code">try {
+        /* всякие штуки, которые могут вызвать исключение */
+} catch(e) {
+        /* обработка исключение, с помощью instanceof NAMEERROR */
+        /* e -- это объект исключения, содержит поля name, message, stack */
+}</span></pre></li>
+            </ul>
+        </li>
+        <li><h3>Сравнение разных типов данных</h3>
+            <ul>
+                <li><b>Объект и строка:</b>
+                    <ul>
+                        <li>Сначала к левому и правому операндам применяется внутренний метод isPrimitive(...), 
+                            отвечающий, является ли он примитивным типом</li>
+                        <li>Проверяет, существует ли у левого операнда функция .toString: <br>
+                        <span class="code">typeof операнд.toString === 'function'; // true или false</span></li>
+                        <li>Если функция есть, то она применяется и сравнивается результат ее работы со строкой</li>
+                    </ul>
+                </li>
+                <li>Сравнение двух сложных типов данных почти всегда вернет false, 
+                    кроме случая, когда оба объекта ссылаются на один и тот же объект в памяти</li>
+                <li>Существует строгое и нестрогое сравнение (=== и ==). Второе допускает неявное
+                    преобразование левого операнда к типу правого<i>NB: рекомендуется всегда юзать строгое</i></li>
+                <li>Приведение объекта к строке:
+                    <ul>
+                        <li><span class="code">String(объект);</span></li>
+                        <li><span class="code">'' + объект;</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><h3>Регулярные выражения</h3>
+            <ul>
+                <li>Записывается внутри /.../</li>
+                <li>Существуют флаги, пишущиеся после /.../(СЮДА), например, <span class="code">g</span> (глобальное сопоставление) или <span class="code">i</span> (игнор регистра)</li>
+                <li>Две функции для работы с регвырами:
+                    <ul>
+                        <li><span class="code">регвыр.test(что-то)</span> проверяет содержание регвыра в строке</li>
+                        <li><span class="code">регвыр.test(что-то)</span> проверяет содержание регвыра в строке</li>
+                    </ul>
+                </li>
+                <li>Имеют PCRE-совместимый синтаксис (Perl Compatible Regular Expression)</li>
             </ul>
         </li>
         <li><h3></h3>

@@ -24,11 +24,21 @@ pre
 {
     width: 400px;
     position: absolute;
-    margin-top: 0;
+    margin-top: -2px;
     left: 80px;
 }
 
 li
 {
     margin: 5px 0;
+}
+
+.expand
+{
+    width: 600px;
+}
+
+.expand2
+{
+    width: 800px;
 }
