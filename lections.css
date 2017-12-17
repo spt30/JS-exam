@@ -28,7 +28,7 @@ pre
     left: 80px;
 }
 
-.baseNumeration > li
+li
 {
-    
+    margin: 5px 0;
 }
