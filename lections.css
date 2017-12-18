@@ -41,7 +41,7 @@ pre
 .logicDiv
 {
     width: 400px;
-    left: -380px;
+    left: -80px;
     position: relative;
 }
 
@@ -63,6 +63,11 @@ li
 .expand3
 {
     width: 800px;
+}
+
+ol > li
+{
+    width: 900px;
 }
 
 .image-code
@@ -87,28 +92,61 @@ input[name='tasks-number'] + label
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 38px;
-    display: inline-block;
+    display: block;
+    position: sticky;
+    top: 0;
     width: 50px;
     height: 50px;
     border-radius: 10px;
     background: #999;
 }
 
+input[name='tasks-number'] + label:nth-of-type(n + 2)
+{
+    top: 36px;
+}
+
+input[name='tasks-number'] + label:nth-of-type(n + 9)
+{
+    top: 86px;
+}
+
+input[name='tasks-number'] + label:nth-of-type(n + 16)
+{
+    top: 136px;
+}
+
+#tt
+{
+    width: 350px;
+    height: 36px;
+    font-size: 26px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 950px;
+}
+
+input[name='tasks-number'] + label:nth-of-type(7n+2)
+{
+    margin-left: 950px;
+}
+
 input[name='tasks-number']:hover + label
 {
     cursor: pointer;
-    background: #880;
+    opacity: .7;
 }
 
 input[name='tasks-number']:checked + label
 {
-    background: #ff0;
-
+    background: rgb(59, 53, 61);
+    color: white;
 }
 
 body
 {
-    --bckgr: yellow;
+    display: flex;
+    flex-wrap: wrap;
+    --bckgr: rgb(118, 190, 169);
 }
 
 input[id='tnum1']:checked ~ ol .task1

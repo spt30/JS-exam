@@ -7,7 +7,7 @@
 </head>
 <body>
     <input id="tnum0" type="radio" name="tasks-number" checked>
-    <label for="tnum0">-</label>
+    <label for="tnum0" id="tt">НИКАКОЙ БИЛЕТ НЕ ВЫБРАН</label>
     <input id="tnum1" type="radio" name="tasks-number">
     <label for="tnum1">1</label>
     <input id="tnum2" type="radio" name="tasks-number">
@@ -319,14 +319,14 @@
                 </li>
                 <li>Добавление свойства: <span class="code">объект.свойство = 'ето новое свойство типа строка';</span></li>
                 <li>Добавление метода или свойства:
-                    <pre class="expand3"><span class="code-format">Object.defineProperty(объект, 'toString', {         /* принимает объект, 
+                    <pre class="expand2"><span class="code-format">Object.defineProperty(объект, 'toString', {         /* принимает объект, 
 название нового свойства и объект конфигурирования, 
 описывающий параметры свойства или метода */
-        value: function() {     // м.б. примитив или функция, во втором случае -- это метод, в первом -- свойство
+        value: function() {     // м.б. примитив или функция
                 return 'хаю-хай'
         },
         writable: true,         // перезаписываемое      
-        enumerable: false,      // перечисляемое (не возвращается при запросе Object.keys(...))
+        enumerable: false,      // перечисляемое (не возвращается при Object.keys(...))
         configurable: true      // конфигурируемое и удаляемое (не связано с writable)
         // последние 3 по умолчанию <code>false</code>
 });</span></pre>
@@ -693,8 +693,17 @@ binPow(8); // 256</span></pre></li>
                         <li>Сеттер/геттер <b>__proto__</b>: 
                             <span class="code">объект.__proto__ = другойОбъект</span>
                             <br><i>появился только в ES6</i></li>
-                        <li></li>
-                        <li></li>
+                        <li><span class="code">Object.create(...)</span> 
+                            -- принимает в качестве параметра желаемый прототип
+                            <br>делает больше работы, чем нам здесь надо и создает только новые объекты</li>
+                        <li>метод <span class="code">setPrototypeOf(..., ...)</span>
+                            -- принимает объект и его желаемый прототип
+                            <ul>Ведет себя "лучше", чем __proto__, хотя и схож с ним:
+                                <li>выкидывает ошибку при попытке присвоить дерьмо (напр. число)</li>
+                                <li>существует обратный метод <span class="code">getPrototypeOf()</span>, 
+                                    возвращающий ссылку на прототип (появился раньше)</li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <li>Как это работает:
@@ -710,6 +719,11 @@ binPow(8); // 256</span></pre></li>
                         <li>Существуют более локальные прототипы, например Array.prototype</li>
                         <img class="image-code" src="prototype-chain.png">
                         <li>Циклическое прототипирование выкидывает эксепшен</li>
+                        <li>Если попытаться поменять значение, которого нет у объекта, 
+                            но есть в его прототипе, то произойдет добавление поля к объекту 
+                            и <q>эффект затенение свойства</q>
+                            <br><b><i>(Благодаря этому эффекту можно добиться и затенения общих 
+                                методов из глобального прототипа)</i></b></li>
                     </ul>
                 </li>
             </ul>
