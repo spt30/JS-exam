@@ -41,7 +41,7 @@ pre
 .logicDiv
 {
     width: 400px;
-    left: -400px;
+    left: -380px;
     position: relative;
 }
 
@@ -70,4 +70,9 @@ li
     width: 400px;
     border-radius: 10px;
     display: block;
+}
+
+h2
+{
+    text-align: center;
 }
