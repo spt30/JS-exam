@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="lections.css" type="text/css">
 </head>
 <body>
+<input id ="hideall" type="checkbox">
+<label for="hideall">Мешается, убрать навигацию</label>
+<label class="rmk">вернуть навигацию</label>
+<main>
     <input id="tnum0" type="radio" name="tasks-number" checked>
     <label for="tnum0" id="tt">НИКАКОЙ БИЛЕТ НЕ ВЫБРАН</label>
     <input id="tnum1" type="radio" name="tasks-number">
@@ -724,10 +728,14 @@ binPow(8); // 256</span></pre></li>
                             и <q>эффект затенение свойства</q>
                             <br><b><i>(Благодаря этому эффекту можно добиться и затенения общих 
                                 методов из глобального прототипа)</i></b></li>
+                        <li><b>Однако, если установить <span class="code">writable: false;</span> 
+                            свойству прототипа, то новое свойство у объекта прописать не получится 
+                            и присваивания также не произойдет, что логично, но контринтуитивно</b></li>
                     </ul>
                 </li>
             </ul>
         </li>
     </ol>
+</main>
 </body>
 </html>

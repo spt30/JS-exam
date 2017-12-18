@@ -82,9 +82,47 @@ h2
     text-align: center;
 }
 
-input[name='tasks-number']
+body > input
+{
+    position: sticky;
+    top: 200px;
+    margin-left: 75%;
+}
+
+main
+{
+    margin-top: -30px;
+}
+
+body > input:checked
+{
+    top: 23px;
+    margin-left: 98%;
+}
+
+body > label:nth-of-type(2)
+{
+    top: 23px;
+    margin-left: 86%;
+}
+
+body > label
+{
+    position: sticky;
+    top: 200px;
+}
+
+body > input:checked ~ main label,
+input[name='tasks-number'],
+body > input:checked + label,
+body > input ~ label:nth-of-type(2)
 {
     display: none;
+}
+
+body > input:checked ~ label:nth-of-type(2)
+{
+    display: inline;
 }
 
 input[name='tasks-number'] + label
@@ -122,12 +160,12 @@ input[name='tasks-number'] + label:nth-of-type(n + 16)
     height: 36px;
     font-size: 26px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin-left: 950px;
+    margin-left: 970px;
 }
 
 input[name='tasks-number'] + label:nth-of-type(7n+2)
 {
-    margin-left: 950px;
+    margin-left: 970px;
 }
 
 input[name='tasks-number']:hover + label
@@ -142,7 +180,7 @@ input[name='tasks-number']:checked + label
     color: white;
 }
 
-body
+main
 {
     display: flex;
     flex-wrap: wrap;
