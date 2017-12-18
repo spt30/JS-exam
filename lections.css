@@ -1,9 +1,19 @@
-.code,
+.code-format,
 pre
 {
     background: #DDD;
     border-radius: 5px;
     font-family:  Calibri;
+}
+
+.code
+{
+    font-style: normal;
+    background: #DDD;
+    border-radius: 5px;
+    padding: 0 5px;
+    font-family:  Calibri;
+    border: .5px dotted;
 }
 
 pre
@@ -15,7 +25,7 @@ pre
 
 .introduce
 {
-    margin: 5px;
+    padding: 5px;
     border: 1px dotted;
     width: 400px;
 }
@@ -28,6 +38,13 @@ pre
     left: 80px;
 }
 
+.logicDiv
+{
+    width: 400px;
+    left: -400px;
+    position: relative;
+}
+
 li
 {
     margin: 5px 0;
@@ -35,10 +52,22 @@ li
 
 .expand
 {
-    width: 600px;
+    width: 400px;
 }
 
 .expand2
 {
+    width: 600px;
+}
+
+.expand3
+{
     width: 800px;
+}
+
+.image-code
+{
+    width: 400px;
+    border-radius: 10px;
+    display: block;
 }
