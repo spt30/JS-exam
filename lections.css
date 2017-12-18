@@ -76,3 +76,122 @@ h2
 {
     text-align: center;
 }
+
+input[name='tasks-number']
+{
+    display: none;
+}
+
+input[name='tasks-number'] + label
+{
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 38px;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background: #999;
+}
+
+input[name='tasks-number']:hover + label
+{
+    cursor: pointer;
+    background: #880;
+}
+
+input[name='tasks-number']:checked + label
+{
+    background: #ff0;
+
+}
+
+body
+{
+    --bckgr: yellow;
+}
+
+input[id='tnum1']:checked ~ ol .task1
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum2']:checked ~ ol .task2
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum3']:checked ~ ol .task3
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum4']:checked ~ ol .task4
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum5']:checked ~ ol .task5
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum6']:checked ~ ol .task6
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum7']:checked ~ ol .task7
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum8']:checked ~ ol .task8
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum9']:checked ~ ol .task9
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum10']:checked ~ ol .task10
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum11']:checked ~ ol .task11
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum12']:checked ~ ol .task12
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum13']:checked ~ ol .task13
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum14']:checked ~ ol .task14
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum15']:checked ~ ol .task15
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum16']:checked ~ ol .task16
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum17']:checked ~ ol .task17
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum18']:checked ~ ol .task18
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum19']:checked ~ ol .task19
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum20']:checked ~ ol .task20
+{
+    background-color: var(--bckgr);
+}
+input[id='tnum21']:checked ~ ol .task21
+{
+    background-color: var(--bckgr);
+}
