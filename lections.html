@@ -222,22 +222,22 @@
                 <li>Условные опреаторы
                     <ul>
                         <li><pre><span class="code-format">if(...) { 
-        ...
+    ...
 } else {
-        ...
+    ...
 }</span></pre></li>
                         <li>Тернарный условный оператор<br><span class="code">(expression) ? true-block : false-block</span></li>
                         <li>switch-case:
 <pre><span class="code-format">switch(expression) {
-        case 'value1':
-                ...
-                [break];
-        case 'value2':
-                ...
-                [break];
+    case 'value1':
         ...
-        default:
-                ...
+        [break];
+    case 'value2':
+        ...
+        [break];
+    ...
+    default:
+        ...
 }</span></pre>
                         </li>
                     </ul>
@@ -312,13 +312,13 @@
                 <li>Значение может быть произвольного типа</li>
                 <li>Создание:
                     <pre><span class="code-format">let obj = {
-        author: 'Petya',
-        countRow: 18,
-        haveSubscribe: true,
-        childAuthor: {
-                name: 'Lesha',
-                age: 5
-        }
+    author: 'Petya',
+    countRow: 18,
+    haveSubscribe: true,
+    childAuthor: {
+        name: 'Lesha',
+        age: 5
+    }
 }</span></pre><br><i>(под капотом во время присваивания вызывается конструктор <span class="code">= new Object({...})</span>)</i>
                 </li>
                 <li>Добавление свойства: <span class="code">объект.свойство = 'ето новое свойство типа строка';</span></li>
@@ -326,13 +326,13 @@
                     <pre class="expand3"><span class="code-format">Object.defineProperty(объект, 'toString', {         /* принимает объект, 
 название нового свойства и объект конфигурирования, 
 описывающий параметры свойства или метода */
-        value: function() {     // м.б. примитив или функция
-                return 'хаю-хай'
-        },
-        writable: true,         // перезаписываемое      
-        enumerable: false,      // перечисляемое (не возвращается при Object.keys(...), for (... in ...)... )
-        configurable: true      // конфигурируемое и удаляемое (не связано с writable)
-        // последние 3 по умолчанию <code>false</code>
+    value: function() {     // м.б. примитив или функция
+        return 'хаю-хай'
+    },
+    writable: true,         // перезаписываемое      
+    enumerable: false,      // перечисляемое (не возвращается при Object.keys(...), for (... in ...)... )
+    configurable: true      // конфигурируемое и удаляемое (не связано с writable)
+    // последние 3 по умолчанию <code>false</code>
 });</span></pre>
                 </li>
                 <li>Также существует метод <span class="code">defineProperties</span>, позволяющий декларировать сразу несколько свойств объекта</li>
@@ -365,10 +365,10 @@
                         <li>удобно при работе с динамическими свойствами, регулируя правила работы с ними и ограничения</li>
                         <li><pre class="expand"><span class="code-format">Object.defineProperty(объект, 'свойство', {
 get: function() {
-        return this.другоеСвойство;
+    return this.другоеСвойство;
 },
 set: function(value) {
-        this.другоеСвойство = parseInt(value) || 0;
+    this.другоеСвойство = parseInt(value) || 0;
 }
 });</span></pre></li>
                         <li>Геттеры срабатывает при обращении на чтение, например <span class="code">объект.свойство</span><br>
@@ -436,8 +436,8 @@ set: function(value) {
                                 </li>
                                 <li><b>Именованные аргументы:</b> передается один аргумент (params), предполагающийся объектом с имеющимися полями:
                                     <pre><span class="code-format">function BMI(params) {
-        var height = params.h;
-        return params.w / (h * h);
+    var height = params.h;
+    return params.w / (h * h);
 }
 
 BMI({w: 60, h: 1.7});</span></pre>
@@ -446,10 +446,10 @@ BMI({w: 60, h: 1.7});</span></pre>
                                 </li>
                                 <li><b>Объект arguments</b> -- массивоподобный объект, содержащий передаваемые аргументы
                                 <pre class="expand"><span class="code-format">function sum() {
-        arguments.length;       // 2
-        var a = arguments[0] || 0;   // первый аргумент
-        var b = arguments[1] || 0;   // второй аргумент
-        return a + b;
+    arguments.length;       // 2
+    var a = arguments[0] || 0;   // первый аргумент
+    var b = arguments[1] || 0;   // второй аргумент
+    return a + b;
 }
 
 sum(5, 3);                           // 8
@@ -475,7 +475,7 @@ sum(3);                              // 3</span></pre>
                                     <br>нельзя вызвать до объявления</li>
                                 <li><b>named function expression:</b> 
                                     <pre class="expand"><span class="code-format">var fact = function inner(n) {
-        return n === 1 ? 1 : n * inner(n-1);
+    return n === 1 ? 1 : n * inner(n-1);
 }</span></pre><br>имя переменной доступно только снаружи, имя функции доступно только изнутри
                                 </li>
                                 <li><b>Конструктор функции:</b> <span class="code">var add = new Function('a', 'b', 'return a+b');</span>
@@ -494,10 +494,10 @@ sum(3);                              // 3</span></pre>
                 <li>Могут быть разные ошибки на все случаи жизни</li>
                 <li>Как правило на практике используется конструкция try ... catch</li>
                 <li><pre class="expand2"><span class="code-format">try {
-        /* всякие штуки, которые могут вызвать исключение */
+    /* всякие штуки, которые могут вызвать исключение */
 } catch(e) {
-        /* обработка исключение, с помощью instanceof NAMEERROR */
-        /* e -- это объект исключения, содержит поля name, message, stack */
+    /* обработка исключение, с помощью instanceof NAMEERROR */
+    /* e -- это объект исключения, содержит поля name, message, stack */
 }</span></pre></li>
             </ul>
         </li>
@@ -570,7 +570,7 @@ sum(3);                              // 3</span></pre>
                 <li><i>NB: Паттерн "модуль" также создает область видимости, чтобы переменные имели внутри нее уникальные имена</i>
                 <br>чтобы воспользоваться им, можно использовать IIFE (immediately-invoked function expression):
                 <pre><span class="code-format">var func = (function () {
-        ...
+    ...
 }());</span></pre><br>теперь из-за механизма "Затенение" испортить функции внутри func нельзя</li>
             </ul>
         </li>
@@ -763,12 +763,12 @@ binPow(8); // 256</span></pre></li>
                     <ul>
                         <li>Решают проблему дублирования кода при создании большого количества однотипных объектов</li>
                         <li>Можно запилить самому: <pre class="expand"><span class="code-format">function createStudent(name) {
-        return {
-                name: name,
-                sleep: function () {
-                        console.info('zzz...');
-                }
-        };
+    return {
+        name: name,
+        sleep: function () {
+            console.info('zzz...');
+        }
+    };
 }</span></pre>, однако, тогда придется каждый раз создавать новый метод (здесь: <span class="code">sleep()</span>
 <br>Решение: вынести методы в прототип:<img class="image-code" src="constructor.png"></li>
                         <li>Конструкторы, которые встроены в язык JavaScript:
@@ -948,8 +948,8 @@ binPow(8); // 256</span></pre></li>
                         <li>В случае асинхронной операции ошибка передается в callback, тогда как
                             синхронная сразу кидает эксепшен
                         </li>
-                        <li>
-                            <ul>Способы работы с асинхронным кодом
+                        <li>Способы работы с асинхронным кодом
+                            <ul>
                                 <li>callback передается последним параметром:
                                     <ul>
                                         <li>Первым аргументом принимает ошибку, если ее нет -- null</li>
@@ -1017,12 +1017,12 @@ binPow(8); // 256</span></pre></li>
                                     </ul>
                                 </li>
                                 <li>Параллельное выполнение промисов <pre><span class="code-format">Promise
-    .all([массив промисов])
-    .then(func);</span></pre> </li>
+   .all([массив промисов])
+   .then(func);</span></pre> </li>
                                 <li>Можно создать промис без совершения асинхронных операций, 
-                                    надо его сразу зарезолвить или зареджектить: <pre><span class="code-format">Promis
-    .resolve('{"name": "serezha"}')
-    .then(console.log);</span></pre>
+                                    надо его сразу зарезолвить или зареджектить: <pre><span class="code-format">Promise
+   .resolve('{"name": "serezha"}')
+   .then(console.log);</span></pre>
                                     В этих случаях промис сразу переходит в указанное состоянии с теми данными,
                                     которые мы передали в скобки resolve или reject
                                 </li>
