@@ -177,35 +177,54 @@ y = 3;</span></pre>
                 </li>
                 <li>Бинарные
                     <ul>
-                        <li>*</li>
-                        <li>/</li>
-                        <li>%</li>
+                        <li><span class="code">*</span><br />(бинарный инфиксный оператор): <span class="code">x * y</span></li>
+                        <li><span class="code">/</span><br />(бинарный инфиксный оператор): <span class="code">x / y</span></li>
+                        <li><span class="code">%</span><br />(бинарный инфиксный оператор): <span class="code">x % y</span></li>
                         <hr class="operatorsPriority">
-                        <li>+</li>
-                        <li>-</li>
-                        <li>+ (конкатенация строк)</li>
+                        <li><span class="code">+</span><br />(бинарный инфиксный оператор): <span class="code">x + y</span></li>
+                        <li><span class="code">-</span><br />(бинарный инфиксный оператор): <span class="code">x - y</span></li>
+                        <li><span class="code">+</span> (конкатенация строк) <br />(бинарный инфиксный оператор): <span class="code">str1 + str2</span></li>
                         <hr class="operatorsPriority">
                     </ul>
                 </li>
                 <li>Сравнения
                     <ul>
-                        <li><</li><li><=</li><li>></li><li>>=</li>
-                        <li>== (нестрогое сравнение (с приведением типов))</li>
-                        <li>!=</li>
-                        <li>=== (строгое сравнение (без приведения типов))</li>
-                        <li>!==</li><hr class="operatorsPriority">
+                        <li><span class="code"><</span><br />(бинарный инфиксный булевский оператор): <span class="code">x < y // true or false</span></li>
+                        <li><span class="code"><=</span><br />(бинарный инфиксный булевский оператор): <span class="code">x <= y // true or false</span></li>
+                        <li><span class="code">></span><br />(бинарный инфиксный булевский оператор): <span class="code">x > y // true or false</span></li>
+                        <li><span class="code">>=</span><br />(бинарный инфиксный булевский оператор): <span class="code">x >= y // true or false</span></li>
+                        <li><span class="code">==</span> (нестрогое сравнение (с приведением типов)) <br />(бинарный инфиксный оператор): <span class="code">x == y // true of false</span></li>
+                        <li><span class="code">!=</span> (нестрогое сравнение (с приведением типов)) <br />(бинарный инфиксный оператор): <span class="code">x != y // true of false</span></li>
+                        <li><span class="code">===</span> (строгое сравнение (без приведения типов)) <br />(бинарный инфиксный оператор): <span class="code">x === y // true of false</span></li>
+                        <li><span class="code">!==</span> (строгое сравнение (без приведения типов)) <br />(бинарный инфиксный оператор): <span class="code">x !== y // true of false</span></li>
+                        <hr class="operatorsPriority">
                     </ul>
                 </li>
                 <li>Логические
                     <ul>
-                        <li>&&</li><hr class="operatorsPriority">
-                        <li>||</li><hr class="operatorsPriority">
+                        <li><span class="code">&&</span><br />(бинарный инфиксный булевский оператор): <span class="code">x && y // true or false</span></li>
+                        <hr class="operatorsPriority">
+                        <li><span class="code">||</span><br />(бинарный инфиксный булевский оператор): <span class="code">x || y // true or false</span></li>
+                        <hr class="operatorsPriority">
                     </ul>
                 </li>
                 <li>Присваивание
                     <ul>
-                        <li>Простое</li>
-                        <li>Составное</li>
+                        <li>Простое: <pre class="expand"><span class="code-format">let x = 5;</span></pre></li>
+                        <li>Составное:
+                            <ul>
+                                <li><pre class="expand"><span class="code-format">let x = 5;
+x += 2; // 7
+                                </span></pre></li>
+                                <li><pre class="expand"><span class="code-format">let x = 5;
+x -= 2; // 3
+                                </span></pre></li>
+                                <li><pre class="expand"><span class="code-format">let x = 5;
+x *= 2; // 10
+                                </span></pre></li>
+                                <li>...</li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <li>Условные опреаторы
@@ -215,7 +234,7 @@ y = 3;</span></pre>
 } else {
     ...
 }</span></pre></li>
-                        <li>Тернарный условный оператор<br><span class="code">(expression) ? true-block : false-block</span></li>
+                        <li>Тернарный условный оператор<br><pre class="expand"><span class="code-format">(expression) ? true-block : false-block</span></pre></li>
                         <li>switch-case:
 <pre><span class="code-format">switch(expression) {
     case 'value1':
@@ -235,8 +254,22 @@ y = 3;</span></pre>
         </li>
         <li><h3>Точка с запятой (строгий режим и режим обратной совместимости)</h3>
             <ul>
-                <li>Точка с запятой может не ставиться в нестрогом режиме, но это может привести к ошибке</li>
+                <li>Точка с запятой может не ставиться в нестрогом режиме, но это может привести к ошибке<br /> Примеры:
+                    <ul>
+                        <li><pre class="expand"><span class="code-format">function () {
+    return // ошибка, вернется undefined
+    5;
+}</span></pre></li>
+                        <li>
+                            <pre class="expand"><span class="code-format">function () {
+    return; // почти явно вернется undefined
+    5;
+}</span></pre></li>
+                        </li>
+                    </ul>
+                </li>
                 <li>Для включения строгого режима в начале файла пишется: <span class="code">'use strict';</span></li>
+                <li>Есть несколько триггеров, которые включают строгий режим по умолчанию, подробнее см. <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Strict_mode">документацию</a></li>
             </ul>
         </li>
         <li><h3>Массивы</h3>
