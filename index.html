@@ -103,33 +103,58 @@
         </li>
         <li><h3>Оператор typeof</h3>
             <ul>
-                <li>Возвращает тип аргумента</li>
+                <li>Возвращает тип параметра</li>
                 <li>Синтаксис оператора: <span class="code">typeof x;</span></li>
                 <li>Синтаксис функции: <span class="code">typeof(x);</span></li>
                 <li>Работают одинаково</li>
             </ul>
         </li>
-        <li><h3>parseInt</h3> Принимает 2 аргумента:
+        <li><h3>parseInt</h3> Принимает 2 параметра:
             <ul>
                 <li>Строка, которую необходимо преобразовать</li>
                 <li>Система счисления, к которой необходимо преобразовать</li>
             </ul>
+            <i>Парсит переданную строку до первого встреченного нечислового символа, возвращает распознаное число</i>
         </li>
-        <li><h3>Number()</h3> Принимает 1 аргумент</li>
-        <li><h3>parseFloat</h3> Принимает 1 аргумент</li>
+        <li>
+            <h3>Number()</h3>
+            <ul>
+                <li>Принимает 1 параметр</li>
+            </ul>
+            <i>Пытается привести к целому числу переданный аргумент</i>
+        </li>
+        <li>
+            <h3>parseFloat</h3>
+            <ul>
+                <li>Принимает 1 параметр</li>
+            </ul>
+            <i>Пытается привести к числу с плавающей точкой переданный аргумент</i>
+        </li>
         <li><h3>Переменные</h3> 2 способа декларации
             <ul>
-                <li><span class="code">var</span></li>
-                <li><span class="code">const и let</span></li> <i>введены в ES6</i>
+                <li>
+                    <pre class="expand"><span class="code-format">var x = 5;</span></pre>
+                    <br />
+                    <i>изначальный способ декларации переменный в JavaScript, в данный момент почти не используется</i>
+                </li>
+                <br />
+                <li>
+                    <pre class="expand"><span class="code-format">const x = 5; // Нельзя перезаписать
+
+let y = 7; // Можно перезаписать
+y = 3;</span></pre>
+                    <br />
+                    <i>введены в ES6, в данный момент используются повсеместно</i>
+                </li>
             </ul>
         </li>
         <li><h3>Именование</h3>
             <ul>
-                <li>Первый символ: <br> <span class="code">a-z     _       $</span></li>
-                <li>Остальные символы: <br> <span class="code">a-z     A-Z     0-9     _       $</span></li>
+                <li>Первый символ: <br> <pre class="expand"><span class="code-format">a-zA-Z_$</span></pre></li>
+                <li>Остальные символы: <br> <pre class="expand"><span class="code-format">a-zA-Z0-9_$</span></pre></li>
                 <li>Принятый стиль: <b>camelCase</b></li>
-                <li>Запрещается использование ключевых слов в именах</li>
-                <li>Если используется <span class="code">var</span>, константы именуются с большой буквы</li>
+                <li>Запрещается использование ключевых слов в именах <i>(например, const, typeof, Object, etc.)</i></li>
+                <li>Константы именуются с большой буквы: <i>по договоренности может быть <b>PascalCase</b>, <b>CONSTANT_CASE</b></i></li>
             </ul>
         </li>
         <li><h3>Комментарии</h3>
@@ -142,13 +167,24 @@
             <ul>
                 <li>Унарные
                     <ul>
-                        <li>++</li><li>--</li><li>+</li><li>-</li><li>! (логическое отрицание)</li><hr class="operatorsPriority">
+                        <li><span class="code">++</span> <br />(префиксный или постфиксный): <span class="code">i++</span> или <span class="code">++i</span></li>
+                        <li><span class="code">--</span> <br />(префиксный или постфиксный): <span class="code">i--</span> или <span class="code">--i</span></li>
+                        <li><span class="code">+</span> <br />(только унарный префиксный): <span class="code">+i</span></li>
+                        <li><span class="code">-</span> <br />(только унарный префиксный): <span class="code">-i</span></li>
+                        <li><span class="code">!</span> (логическое отрицание) <br />(только унарный префиксный): <span class="code">!isRight</span></li>
+                        <hr class="operatorsPriority">
                     </ul>
                 </li>
                 <li>Бинарные
                     <ul>
-                        <li>*</li><li>/</li><li>%</li><hr class="operatorsPriority">
-                        <li>+</li><li>-</li><li>+ (конкатенация строк)</li><hr class="operatorsPriority">
+                        <li>*</li>
+                        <li>/</li>
+                        <li>%</li>
+                        <hr class="operatorsPriority">
+                        <li>+</li>
+                        <li>-</li>
+                        <li>+ (конкатенация строк)</li>
+                        <hr class="operatorsPriority">
                     </ul>
                 </li>
                 <li>Сравнения
